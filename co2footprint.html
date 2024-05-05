@@ -7,38 +7,41 @@
 
         body {
             font-family: system-ui; 
-            width: 80%;
+            width: 85%;
             margin-left: auto;
             margin-right: auto;
             margin-top: 3em;
         }
         nav li, form {
             display:inline;
+            margin: 5px;
         }
-        header, footer nav ul {
+        header {
             text-align: right;
         }
         main nav ul {
             padding:0%;
             text-align: left;
         }
-        input {
-            height: 1em;
+        footer nav ul {
+            text-align: right;
+        }
+        input, .filter-dropdown {
             padding: 0.5em;
+            margin-right: 10px;
             border: 1px solid #d5e0e9;
             border-radius: 0.2em;
+            width: 125px;
         }
         a {
             text-decoration: none; 
-            color:rgb(21, 100, 14);
-            margin:0.5em
+            color:#5cb85c;
         }
         a:hover {
-            color:rgb(26, 133, 17);
+            color:#1a8511;
         }
         table {
             width: 100%;
-            margin: 0.5em;
             border-collapse: collapse;
         }
         thead td, thead th {
@@ -60,18 +63,14 @@
             background-color: #ffffff; /* Macht alle Zeilen weiß */
         }
         .filter-container {
-            margin-bottom: 10px;
-        }
-        .filter-dropdown {
-            padding: 5px;
-            margin-right: 10px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <img src="logo.JPG" height="200" width="400">
+    <img src="logo.JPG" height="200" width="400">
+        <header>
             <nav>
                 <ul>
                     <li>
@@ -79,47 +78,68 @@
                             <input type="text" name="suche" placeholder="Suche">
                         </form>
                     </li>
-                    <li><a href="https://www.instagram.com/wtco2">Instagram</a></li>
-                    <li><a href="https://www.facebook.com/wtco2">Facebook</a></li>
-                    
+                    <li><a href="https://www.twitter.de/wtco2">Twitter</a></li>
+                    <li><a href="https://www.facebook.de/wtco2">Facebook</a></li>
+                    <li><a href="https://www.instagram.de/wtco2">Instagram</a></li>
+                    <li><a href="https://www.tiktok.de/wtco2">TikTok</a></li>
                 </ul>
             </nav>
-    </header>
+        </header>
     <main>
-        
         <nav>
             <ul>
                 <li><a href="home.html">Homepage</a></li>
                 <li><a href="philo.html">Unsere Philosphie</a></li>
             </ul>
-        
         </nav>
         <section>
-            <h1>WTCO2 - Worldwide Tracking of CO2</h1>
+            <h1>
+                WTCO2 - Worldwide Tracking of CO₂
+            </h1>
             <p>
-                Test1
+                Die globale Erwärmung schreitet sukzessive und mit großen Schritten voran.
+                Eine Mitschuld tragen energieintensive Unternehmen, die mit der Modernisierung ihrer Geschäftsprozesse und
+                der damit einhergehenden Umrüstung auf erneuerbare Energien hinterher hinken. Wir versuchen auf diese Firmen aufmerksam zu machen, um ein "Umdenken"
+                in der weltweiten Politik zu erwirken. Es ist Zeit zu handeln.
             </p>
         </section>
         <section>
-            <h2>Unser Ziel</h2>
-            <p>
-                Wir sind spezialisiert auf die Erforschung des akuten Klimawandels, welcher sukzessive voranschreitet. Daher schaffen wir eine Übersicht über die Übeltäter.
-            </p>
+            <h2>
+                Unsere Ziele
+            </h2>
+            <ul>
+                <li>Ursachenforschung</li>
+                <li>Ideen zur Einsparung von CO2</li>
+                <li>Politik bewegen</li>
+                <li>Nachhaltigkeit fördern</li>
+            </ul>
         </section>
-        <section><br>
-            <h2>CO2 Ausstoß nach Länder und Firmen</h2>
+        <section>
+            <h2>
+                Jährlicher CO₂ Ausstoß nach Länder und Firmen
+            </h2>
             <div class="filter-container">
-                <label for="filterLand">Land:</label>
+                <label for="filterLand">
+                    Land:
+                </label>
                 <select id="filterLand" class="filter-dropdown" onchange="filterTable(0)">
-                    <option value="">Alle</option>
+                    <option value="">
+                        Alle
+                    </option>
                 </select>
-                <label for="filterFirma">Verantwortliche Firma:</label>
+                <label for="filterFirma">Firma:</label>
                 <select id="filterFirma" class="filter-dropdown" onchange="filterTable(1)">
-                    <option value="">Alle</option>
+                    <option value="">
+                        Alle
+                    </option>
                 </select>
-                <label for="filterCO2">CO2 Ausstoß (Mio t):</label>
+                <label for="filterCO2">
+                    CO₂:
+                </label>
                 <select id="filterCO2" class="filter-dropdown" onchange="filterTable(2)">
-                    <option value="">Alle</option>
+                    <option value="">
+                        Alle
+                    </option>
                 </select>
             </div>
     <table id="co2Table">
@@ -127,7 +147,7 @@
           <tr>
             <th onclick="sortTable(0)" data-column="0">Land</th>
             <th onclick="sortTable(1)" data-column="1">Firma</th>
-            <th onclick="sortTable(2)" data-column="2">CO2 (Mio t)</th>
+            <th onclick="sortTable(2)" data-column="2">CO₂ (Mio t)</th>
           </tr>
         </thead>
         <tbody>
