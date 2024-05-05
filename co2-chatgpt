@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CO2 Ausstoß Liste</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        cursor: pointer; /* Make the table headers clickable for sorting */
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+</head>
+<body>
+
+<table id="co2Table">
+  <thead>
+    <tr>
+      <th onclick="sortTable(0)">Land</th>
+      <th onclick="sortTable(1)">Verantwortliche Firma</th>
+      <th onclick="sortTable(2)">CO2 Ausstoß (Mio t)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>USA</td>
+      <td>Example Inc.</td>
+      <td>600</td>
+    </tr>
+    <tr>
+      <td>China</td>
+      <td>Global CO2 Corp.</td>
+      <td>1000</td>
+    </tr>
+    <!-- Weitere Zeilen hier einfügen -->
+  </tbody>
+</table>
+
+<script>
+function sortTable(columnIndex) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("co2Table");
+    switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("td")[columnIndex];
+            y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+            if (isNaN(x.innerHTML)) {
+                shouldSwitch = x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase();
+            } else {
+                shouldSwitch = parseFloat(x.innerHTML) > parseFloat(y.innerHTML);
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                break;
+            }
+        }
+    }
+}
+</script>
+
+</body>
+</html>
