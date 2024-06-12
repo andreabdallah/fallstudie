@@ -1,0 +1,14 @@
+body {
+    font-family: "Helvica-neue", Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: rgb(200, 200, 200);
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+}
+
+.container-ueberschrift {
+    margin: 20px;
+
+}
